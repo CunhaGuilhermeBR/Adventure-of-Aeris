@@ -1,20 +1,24 @@
-# Adventure-of-Aeris
-Just a game for test and practice
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
 
-
+int combate (int vidaTOTAL, int vidaATUAL, int HPinimigo, int DES){
+  int INpj, INinimigo;
+  INpj=rand() % 10;
+  INpj=INpj+DES;
+  printf("%d", &HPinimigo);
+}
 
 int main()
 {
-    int classe, vida, FOR, DES, dano, escolha;
+    int classe, vidaTOTAL, FOR, DES, dano, vidaATUAL, escolha, HPinimigo;
     classe=0;
-    vida=0;
+    vidaTOTAL=0;
     FOR=0;
     DES=0;
     dano=0;
     escolha=0;
+    HPinimigo=0;
 
     setlocale(LC_ALL, "Portuguese");
 
@@ -33,13 +37,15 @@ int main()
      printf("Você é um menestrel agora, ágil e mortal... talvez nem tanto quanto o ladino.\n\n");
      FOR=1;
      DES=4;
-     vida=8;
+     vidaTOTAL=8;
+     vidaATUAL=vidaTOTAL;
     }
     else if (classe==2){
      printf("Você é um guerreiro agora, forte e mortal... talvez nem tanto quanto o bárbaro.\n\n");
      FOR=2;
      DES=1;
-     vida=10;
+     vidaTOTAL=10;
+     vidaATUAL=vidaTOTAL;
     }
 
    printf("Você está no caminho da cidade, dois homens estão batendo em um mendigo na rua. O que vai fazer?\n 1-Ajudar o pobre homem ou 2-Ema ema ema cada um com seus problemas\n");
@@ -53,12 +59,13 @@ int main()
     } else if (escolha==1){
 
      printf("Os foras da lei não gostaram muito de você ter acabado com a diversão deles.\n");
+     combate(vidaTOTAL, vidaATUAL, 4, DES);
     }
     else if (escolha==2){
      printf("Você é um guerreiro agora, forte e mortal... talvez nem tanto quanto o bárbaro.\n\n");
      FOR=2;
      DES=1;
-     vida=10;
+     vidaTOTAL=10;
     }
     return 0;
 }
